@@ -46,8 +46,16 @@ body {
   max-width: 150%;
   max-height: 150%;
   z-index: 2;
-  user-select: none;
-  -webkit-user-drag: none;
+  transform-origin: bottom center;
+  animation: sway 4s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%   { transform: rotate(-1.5deg); }
+  25%  { transform: rotate(1deg); }
+  50%  { transform: rotate(2deg); }
+  75%  { transform: rotate(0deg); }
+  100% { transform: rotate(-1.5deg); }
 }
 
 /* ===== Terrarium (center) ===== */
@@ -70,6 +78,9 @@ body {
   opacity: 0.5;
   border-radius: 2rem;
   z-index: 1;
+  box-shadow: 
+  inset 0 0 30px rgba(0,0,0,0.08),
+  0 20px 40px rgba(0,0,0,0.1);
 }
 
 .jar-top {
@@ -111,20 +122,30 @@ body {
 /* ===== Glass reflections ===== */
 .jar-glossy-long {
   position: absolute;
-  left: 5%;
+  left: 6%;
   top: 15%;
-  width: 5%;
+  width: 6%;
   height: 35%;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 2rem;
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0.7),
+    rgba(255,255,255,0.2)
+  );
+  border-radius: 3rem;
+  filter: blur(1px);
 }
 
 .jar-glossy-short {
   position: absolute;
-  left: 8%;
+  left: 10%;
   top: 55%;
   width: 4%;
   height: 12%;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 2rem;
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0.6),
+    rgba(255,255,255,0.1)
+  );
+  border-radius: 3rem;
+  filter: blur(1px);
 }
